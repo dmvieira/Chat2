@@ -1,7 +1,7 @@
 <?php
 //Connection Page
 define("HOST", 'localhost');
-define("USERNAME"", 'db_user');
+define("USERNAME", 'db_user');
 define("PASSWORD", 'db_password');
 
    mysql_connect( HOST, USERNAME, PASSWORD) or die("Could not connect");
