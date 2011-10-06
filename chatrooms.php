@@ -31,7 +31,7 @@
     	
         	<h1><a href="/examples/Chat2/">Chat v2</a></h1>
         	
-        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?></div>
+        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?><?php echo $_SESSION['userid']?><a href="out.php"><img onmouseover="javascript:this.src='images/outover.png';" onmouseout="javascript:this.src='images/out.png';" src="images/out.png" /></a></div>
         	
         </div>
         
