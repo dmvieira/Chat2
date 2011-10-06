@@ -18,7 +18,7 @@
     <script type="text/javascript" src="check.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('userid').focus();">
 
     <div id="page-wrap"> 
     
@@ -30,16 +30,15 @@
         	<form method="post" action="jumpin.php">
             	<label>Desired Username:</label>
                 <div>
-                	<input type="text" id="userid" name="userid" />
-                    <input type="submit" value="Check" id="jumpin" />
+                	<input type="text" id="userid" name="userid" value="<?php if (isset($_GET['user'])){ echo $_GET['user'];}?>" />
             	</div>
             </form>
         </div>
         
         <div id="status">
-        	<?php if (isset($_GET['error'])): ?>
-        		<!-- Display error when returning with error URL param? -->
-        	<?php endif;?>
+            <?php if ($_GET['error']==1): ?>
+				<div class='message warning'>This nickname is in use. (Nicknames take 2 minutes of no use to expire)</div>
+			<?php endif;?>
         </div>
         
     </div>
