@@ -18,12 +18,13 @@
         	 
     	 case ('send'):
     	 
-		     $nickname = htmlentities(strip_tags($_POST['nickname']), ENT_QUOTES);
+    	 
+		     $nickname = htmlentities(strip_tags(utf8_decode($_POST['nickname'])), ENT_QUOTES);
 		     $patterns = array("/:\)/", "/:D/", "/:p/", "/:P/", "/:\(/");
 			 $replacements = array("<img src='smiles/smile.gif'/>", "<img src='smiles/bigsmile.png'/>", "<img src='smiles/tongue.png'/>", "<img src='smiles/tongue.png'/>", "<img src='smiles/sad.png'/>");
 			 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 			 $blankexp = "/^\n/";
-			 $message = htmlentities(strip_tags($_POST['message']), ENT_QUOTES);
+			 $message = htmlentities(strip_tags(utf8_decode($_POST['message'])), ENT_QUOTES);
 			 
     		 if (!preg_match($blankexp, $message)) {
             	
@@ -35,8 +36,7 @@
             	 fwrite(fopen($file, 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
     		 }
     		 
-        	 break;
-    	
+        	 break;    	
     }
     
     echo json_encode($log);
