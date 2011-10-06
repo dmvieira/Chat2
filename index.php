@@ -36,9 +36,9 @@
         </div>
         
         <div id="status">
-            <?php if ($_GET['error']==1): ?>
+        	<?php if (isset($_GET['user'])){if ($_GET['error']==1): ?>
 				<div class='message warning'>This nickname is in use. (Nicknames take 2 minutes of no use to expire)</div>
-			<?php endif;?>
+			<?php endif;}?>
         </div>
         
     </div>
