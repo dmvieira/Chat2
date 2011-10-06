@@ -8,9 +8,7 @@
   
       $name = cleanInput($_GET['name']);
 
-      $getRooms = "SELECT *
-  			           FROM chat_rooms
-  		             WHERE name = '$name'";
+      $getRooms = "SELECT *  FROM chat_rooms WHERE name = '".utf8_decode($name)."'";
   		         
       $roomResults = mysql_query($getRooms);
 		
@@ -56,7 +54,7 @@
     	
         	<h1><a href="/examples/Chat2/">Chat v2</a></h1>
         	
-        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?></div>
+        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?><a href="../out.php"><img onmouseover="javascript:this.src='../images/outover.png';" onmouseout="javascript:this.src='../images/out.png';" src="../images/out.png" /></a></div>
         	
         </div>
         
@@ -84,6 +82,6 @@
 
 <?php
     else:
-            header('Location: http://css-tricks.com/examples/Chat2/');
+	  header("Location: ../?error=2");
     endif; 
 ?>
