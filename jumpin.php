@@ -59,7 +59,7 @@
     	
     		} else {
     			
-    		  header('Location: ./?error=1');
+        	  header('Location: .?error=1&user='.$username);
     			
     		}
     
