@@ -10,9 +10,9 @@ require_once("../dbcon.php");
 //Start Array
 $data = array();
 // Get data to work with
-		$current = cleanInput($_GET['current']);
-		$room = cleanInput($_GET['room']);
-		$username = cleanInput($_GET['username']);
+		$current = utf8_decode(cleanInput($_GET['current']));
+		$room = utf8_decode(cleanInput($_GET['room']));
+		$username = utf8_decode(cleanInput($_GET['username']));
 		$now = time();
 // INSERT your data (if is not already there)
        	$findUser = "SELECT * FROM `chat_users_rooms` WHERE `username` = '$username' AND `room` ='$room' ";
