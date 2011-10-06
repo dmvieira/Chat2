@@ -1,7 +1,5 @@
 <?php 
     
-    session_start();
-
     require_once("dbcon.php");
 
     if (checkVar($_SESSION['userid'])): 
@@ -31,7 +29,7 @@
     	
         	<h1><a href="/examples/Chat2/">Chat v2</a></h1>
         	
-        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?></div>
+        	<div id="you"><span>Logged in as:</span> <?php echo $_SESSION['userid']?><a href="out.php"><img onmouseover="javascript:this.src='images/outover.png';" onmouseout="javascript:this.src='images/out.png';" src="images/out.png" /></a></div>
         	
         </div>
         
@@ -47,7 +45,7 @@
                             $numOfUsers = mysql_num_rows($query);
                     ?>
                     <li>
-                        <a href="room/?name=<?php echo $rooms['name']?>"><?php echo $rooms['name'] . "<span>Users chatting: <strong>" . $numOfUsers . "</strong></span>" ?></a>
+                        <a href="room/?name=<?php echo utf8_encode($rooms['name'])?>"><?php echo utf8_encode($rooms['name']) . "<span>Users chatting: <strong>" . $numOfUsers . "</strong></span>" ?></a>
                     </li>
                     <?php endwhile; ?>
                 </ul>
