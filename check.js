@@ -1,5 +1,5 @@
 $(function() {
-    		 
+        	 
     $("#userid").keyup(function(event) { 
     
         var username = $(this).val();
@@ -12,11 +12,6 @@ $(function() {
             success: function(data){
                 $("#status").html(data.result);
                                 
-                if (data.inuse == "inuse") { 
-                    $("#jumpin").val("Check");   
-                } else {
-                    $("#jumpin").val("Go in!");
-                }
                  
             }
         });
